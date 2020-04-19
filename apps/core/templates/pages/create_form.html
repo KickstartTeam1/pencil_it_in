@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Create Event
+{% endblock title %}
+
+
+{% block content %}
+<div class="container">
+  <h1 class="display-4">Create an Event!</h1>
+  <p class="lead">The form will be here!</p>
+  <hr class="my-4">
+  <p>Edit this to include your content.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="{% url 'about' %}" role="button">Learn more</a>
+  </p>
+</div>
+
+<p>More stuff. {{ example_context_variable }}.</p>
+
+{% endblock content %}
+
+

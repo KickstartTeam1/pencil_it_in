@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 from apps.accounts.models import User
 
@@ -6,7 +7,7 @@ from apps.accounts.models import User
 class Event(models.Model):
     create_event_user = models.ForeignKey(
        User,
-       on_delete=models.CASCADE,
+       on_delete=models.CASCADE, default=99999999
     )
     event_title = models.CharField(max_length=128)
     location = models.CharField(max_length=256)

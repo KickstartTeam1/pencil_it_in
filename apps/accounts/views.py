@@ -8,6 +8,26 @@ from django.contrib.auth.decorators import login_required
 from apps.accounts.forms import UserEditForm, SignupForm
 from apps.accounts.models import User
 
+#NEW USER SIGN UP 
+def sign_up(request):
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+
+            # Log-in the user right away, then redirect home
+            messages.success(request, 'Account created successfully. Welcome to Pencil It In!')
+            login(request, user)
+            return redirect('accounts/profile_page.html')
+    else:
+        form = SignupForm()
+
+    context = {
+        'form': form,
+    }
+    return render(request, 'accounts/signup.html', context)
+
+#LOG IN PAGE
 def log_in(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, request.POST)
@@ -24,40 +44,14 @@ def log_in(request):
     }
     return render(request, 'accounts/login.html', context)
 
-
-def sign_up(request):
-    if request.method == 'POST':
-        form = SignupForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-
-            # Log-in the user right away, then redirect home
-            messages.success(request, 'Account created successfully. Welcome!')
-            login(request, user)
-            return redirect('accounts/profile_page.html')
-    else:
-        form = SignupForm()
-
-    context = {
-        'form': form,
-    }
-    return render(request, 'accounts/signup.html', context)
-
-
+#LOG OUT PAGE
 def logout_view(request):
     logout(request)
     messages.success(request, 'Logged out.')
     return redirect('home')
 
-
-def view_all_users(request):
-    all_users = User.objects.all()
-    context = {
-        'users': all_users,
-    }
-    return render(request, 'accounts/view_all_users.html', context)
-
-
+#VIEW PROFILE PAGE
+@login_required
 def view_profile(request, username):
     user = User.objects.get(username=username)
 
@@ -72,7 +66,7 @@ def view_profile(request, username):
     }
     return render(request, 'accounts/profile_page.html', context)
 
-
+#EDIT PROFILE PAGE
 @login_required
 def edit_profile(request):
     if request.method == 'POST':

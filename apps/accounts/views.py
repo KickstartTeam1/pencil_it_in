@@ -34,7 +34,7 @@ def sign_up(request):
             # Log-in the user right away, then redirect home
             messages.success(request, 'Account created successfully. Welcome!')
             login(request, user)
-            return redirect('home')
+            return redirect('accounts/profile_page.html')
     else:
         form = SignupForm()
 

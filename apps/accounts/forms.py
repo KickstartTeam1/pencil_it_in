@@ -11,8 +11,7 @@ class UserEditForm(forms.ModelForm):
             'last_name',
             'username',
             'email',
-            'password1',
-            'password2',
+            'password',
         )
 
 class SignupForm(forms.ModelForm):
@@ -20,10 +19,9 @@ class SignupForm(forms.ModelForm):
         model = User
         fields = (
             'first_name',
-            'last_name'
+            'last_name',
             'username',
             'email',
-            'password1',
-            'password2',
+            'password',
         )
 

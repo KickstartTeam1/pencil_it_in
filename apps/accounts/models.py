@@ -9,6 +9,7 @@ from django.contrib.auth.models import AbstractUser
 class User(AbstractUser):
 
     bio = models.TextField()
+    image = models.FileField(upload_to='tweet_images/', null=True, blank=True)
 
     def gravatar(self, size=None):
         GRAVATAR_URL = 'https://gravatar.com/avatar/%s?d=identicon%s'
@@ -21,4 +22,3 @@ class User(AbstractUser):
             size_str = ''
 
         return GRAVATAR_URL % (digest, size_str)
-

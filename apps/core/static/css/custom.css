@@ -4,6 +4,8 @@
     background: linear-gradient(135deg, #f2f9fe 0%, #fea096 100%);
 }
 
+
+
 .card-user {
     max-width: 80px;
 }
@@ -12,4 +14,30 @@
     height: 30px;
     margin-top: -10px;
     margin-bottom: -10px;
+}
+
+
+.card {
+    border: 5px solid #fccb00 ;
+
+}
+
+.btn {
+    color: #ffffff ;
+    background-color: #fea096;
+    border-color: #fccb00;
+
+}
+
+.btn:hover {
+    background-color: #fccb00;
+    border-color: #fea096;
+}
+
+a.nav-link {
+    color: black;
+}
+
+a.navbar-brand {
+    color: black;
 }

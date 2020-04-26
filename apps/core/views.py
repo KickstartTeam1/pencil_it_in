@@ -13,6 +13,7 @@ def home(request):
 
     return render(request, 'pages/home.html', context)
 
+@login_required
 def create_event(request):
     if request.method == 'POST':
         form = CreateEventForm(request.POST)
@@ -32,6 +33,7 @@ def create_event(request):
 
     return render(request, 'pages/create_form.html', context)
 
+@login_required
 def edit_event(request, event_id):
     # Get the event we are looking for
     event = Event.objects.get(id=event_id)

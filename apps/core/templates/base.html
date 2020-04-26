@@ -7,7 +7,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>
         {% block title %}
-            <a href="./static/images/logo.PNG"></a>
+            <a href="/static/images/logo.PNG"></a>
         {% endblock title %}
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,22 +18,32 @@
     <!--[if lt IE 9]>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
 
     <link href="{% static 'css/signinform.css' %}" rel="stylesheet">
 
     <!-- Add your custom CSS to this file -->
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    rel = "stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    rel = "stylesheet">
     <link href="{% static 'css/custom.css' %}" rel="stylesheet">
-
   </head>
-
+<style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif; color: black;}
+</style>
 <body>
 
 <nav class="navbar navbar-expand-md">
     <div class="container">
         <a class="navbar-brand" href="/">
-            <img src="../static/images/icon.PNG", style="width:40px;" />
+            <img src="/static/images/icon.PNG", style="width:40px;" />
             Pencil It In
         </a>
 
@@ -71,7 +81,7 @@
 </div>
 
 
-
+<main>
 {% block main %}
     <div class="container pt-2">
 
@@ -88,11 +98,16 @@
 
     </div>
 {% endblock main %}
-
+</main>
 
       <script src="{% static 'js/bootstrap/jquery-3.4.1.min.js' %}"></script>
       <script src="{% static 'js/bootstrap/bootstrap.js' %}"></script>
-  </body>
+
+    <footer class="container-fluid bg-4 text-center">
+<p>Pencil It In, copyright 2020</a></p>
+</footer>
+
+</body>
 </html>
 
 <style>
@@ -100,8 +115,13 @@
       background-color: #fea096;
       color: #fff;
     }
-    </style>
+    body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+    main {
+        flex: 1 1 auto;
+    }
+</style>
     
-    <footer class="container-fluid bg-4 text-center">
-      <p>Pencil It In, copyright 2020</a></p>
-    </footer>

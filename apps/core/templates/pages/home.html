@@ -1,16 +1,56 @@
 {% extends "base.html" %}
 
+
 {% block title %}
-    My Site - Home
+    Pencil It In - Home
 {% endblock title %}
 
-
 {% block content %}
-<div class="jumbotron">
-  <h1 class="display-4"> <img src="../static/images/logo.PNG", background-repeat: no-repeat; background-size: cover; /></h1>
-  <p class="lead">This is a simple Jumbotron component from Bootstrap 4.</p>
-  <hr class="my-4">
+
+<style>
+
+body, html {
+  height: 100%;
+  line-height: 1.8;
+}
+
+.header-logo {
+  text-align: center;
+}
+.header-logo img {
+  max-height: 70vh;
+}
+</style>
+<body>
+
+<div class="header-logo">
+  <img src="../../static/images/logo.png" />                        
 </div>
+
+
+<div class="w3-container container-fluid" style="padding:128px 16px" id="about">
+    <h3 class="w3-center">Pencil in an event in four easy steps!</h3>
+    <p class="w3-center w3-large">Simplest way to create private events with your circle!</p>
+    <div class="w3-row-padding w3-center" style="margin-top:64px">
+      <div class="w3-quarter">
+        <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
+        <p class="w3-large">Log In</p>
+      </div>
+      <div class="w3-quarter">
+        <i class="fa fa-edit w3-margin-bottom w3-jumbo"></i>
+        <p class="w3-large">Create an Event</p>
+      </div>
+      <div class="w3-quarter">
+        <i class="fa fa-send-o w3-margin-bottom w3-jumbo"></i>
+        <p class="w3-large">Send</p>
+      </div>
+      <div class="w3-quarter">
+        <i class="fa fa-smile-o w3-margin-bottom w3-jumbo"></i>
+        <p class="w3-large">Have Fun!</p>
+      </div>
+    </div>
+  </div>
+
 
 
 {% endblock content %}

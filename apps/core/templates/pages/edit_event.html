@@ -7,19 +7,8 @@
 
 {% block content %}
 <div class="container">
-  <h1 class="display-4">Edit Event</h1>
-  <form action="." method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button>Submit</button>
-  </form>
-  <hr class="my-4">
-  <p>Edit this to include your content.</p>
-
+  {% include "accounts/form_snippet.html" with form_title="Edit Event" %}
 </div>
-
-
-
 {% endblock content %}
 
 

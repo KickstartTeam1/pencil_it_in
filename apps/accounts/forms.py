@@ -9,19 +9,20 @@ class UserEditForm(forms.ModelForm):
         fields = (
             'first_name',
             'last_name',
-            'username',
+            'bio',
             'email',
-            'password',
+
         )
 
-class SignupForm(forms.ModelForm):
-    class Meta:
+class SignupForm(UserCreationForm):
+    class Meta(UserCreationForm.Meta):
         model = User
         fields = (
             'first_name',
             'last_name',
             'username',
             'email',
-            'password',
+            'password1',
+            'password2',
         )
 

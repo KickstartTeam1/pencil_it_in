@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "395f1b276a16bb410b9e4ef179fd9a6aeccf4226f2afd672b7c7a4df9ec219ce"
+            "sha256": "1d8e2ae38eda21be60b4f3a81ca487b820f97e54660dacaac5922dff38dfed92"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -128,6 +128,13 @@
                 "sha256:b02c06db6cf09c12dd25137e563b31700d3b80fcc4ad23abb7a315f2789819be"
             ],
             "version": "==2019.3"
+        },
+        "socketlabs-injectionapi": {
+            "hashes": [
+                "sha256:0cb6840057831485802e06ea8ad9a8632161f52eaa088aa04364e769b13f491a"
+            ],
+            "index": "pypi",
+            "version": "==1.0.1"
         },
         "soupsieve": {
             "hashes": [

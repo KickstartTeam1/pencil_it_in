@@ -1,10 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
-from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-
 from apps.accounts.forms import UserEditForm, SignupForm
 from apps.accounts.models import User
 from apps.core.models import Event
@@ -77,7 +75,7 @@ def edit_profile(request):
         form = UserEditForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('../users/' + request.user.username)
     else:
         form = UserEditForm(instance=request.user)
 

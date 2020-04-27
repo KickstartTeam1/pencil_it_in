@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 from apps.accounts.forms import UserEditForm, SignupForm
 from apps.accounts.models import User
+from apps.core.models import Event
 
 #NEW USER SIGN UP 
 def sign_up(request):
@@ -18,7 +19,7 @@ def sign_up(request):
             # Log-in the user right away, then redirect home
             messages.success(request, 'Account created successfully. Welcome to Pencil It In!')
             login(request, user)
-            return redirect('../users/'+request.user.username)
+            return redirect('../users/' + request.user.username)
     else:
         form = SignupForm()
 
@@ -35,7 +36,7 @@ def log_in(request):
             # User has specified valid credentials, have user log-in, and then
             # redirect back home
             login(request, form.get_user())
-            return redirect('../users/'+request.user.username)
+            return redirect('../users/' + request.user.username)
     else:
         form = AuthenticationForm()
 
@@ -54,6 +55,8 @@ def logout_view(request):
 @login_required
 def view_profile(request, username):
     user = User.objects.get(username=username)
+    events = Event.objects.order_by('-created')
+    events_by_user = events.filter(create_event_user=user)
 
     if request.user == user:
         is_viewing_self = True
@@ -63,6 +66,7 @@ def view_profile(request, username):
     context = {
         'user': user,
         'is_viewing_self': is_viewing_self,
+        'events': events_by_user,
     }
     return render(request, 'accounts/profile_page.html', context)
 

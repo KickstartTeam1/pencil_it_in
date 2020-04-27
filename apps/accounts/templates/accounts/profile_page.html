@@ -17,10 +17,22 @@
             <a href="{% url "edit_profile" %}">Edit</a>
         {% endif %}
     </div>
-
-    <div class="col-md-9">
-        stuff could go here...
-    </div>
+    {%for event in events %}
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-7 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <h4>{{ event.event_title }}</h4>
+                    <p><strong>Location:</strong> {{ event.location }}</p>
+                    <p><strong>Start Date:</strong> {{ event.start_dt }}</p>
+                    <p><strong>End Date:</strong> {{ event.end_dt }}</p>
+                    <p><strong>Notes:</strong> {{ event.message }}</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      <br >
+      {% endfor %}
 </div>
 {% endblock %}
 

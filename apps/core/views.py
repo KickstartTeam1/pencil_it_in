@@ -1,35 +1,9 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from django import forms
 from apps.core.models import Event
 from apps.core.forms import CreateEventForm, EditEventForm
-
 from datetime import datetime
-
-now = datetime.now()
-print(now)
-
-#24-hour format
-print(now.strftime('%Y/%m/%d %H:%M:%S'))
-
-#12-hour format
-print(now.strftime('%m/%d/%Y %I:%M:%S'))
-
-print(now.strftime('%m/%d/%Y %I:%M %p'))
-
-#I is 12 hour time, p is am/pm
-print(now.strftime('%I:%M %p'))
-
-
-# class CreateEventForm(forms.ModelForm):
-#     class Meta:
-#         model = Event
-#         fields = ['event_title', 'location', 'start_dt', 'message', 'invitee_emails']
-
-# class EditEventForm(forms.ModelForm):
-#     class Meta:
-#         model = Event
-#         fields = ['event_title', 'location', 'start_dt', 'message']
-
 
 def home(request):
     events = Event.objects.all()
@@ -39,13 +13,15 @@ def home(request):
 
     return render(request, 'pages/home.html', context)
 
+@login_required
 def create_event(request):
     if request.method == 'POST':
-
         form = CreateEventForm(request.POST)
-
+        logged_in_user = request.user
         if form.is_valid():
-            form.save()
+            event = form.save(commit=False)
+            event.create_event_user = logged_in_user
+            event.save()
 
             return redirect('/')
     else:
@@ -57,6 +33,7 @@ def create_event(request):
 
     return render(request, 'pages/create_form.html', context)
 
+@login_required
 def edit_event(request, event_id):
     # Get the event we are looking for
     event = Event.objects.get(id=event_id)
@@ -78,3 +55,16 @@ def edit_event(request, event_id):
         'form': form,
     }
     return render(request, 'pages/edit_event.html', context)
+
+def event(request, event_id):
+    event = Event.objects.get(id=event_id)
+
+    context = {
+        'event_title': event.event_title,
+        'location': event.location,
+        'start': event.start_dt,
+        'end': event.end_dt,
+        'message': event.message,
+    }
+
+    return render(request, 'pages/event_receipt.html', context)

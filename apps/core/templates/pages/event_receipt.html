@@ -6,16 +6,21 @@
 
 
 {% block content %}
-<div class="container">
-  <h1 class="display-4">You've been invited!</h1>
-  <p class="lead">The form will be here!</p>
-  <hr class="my-4">
-  <p>Edit this to include your content.</p>
- 
+<div class="row">
+  <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+          <div class="card-body">
+              <h2 class="text-center">You're Invited!</h2>
+              <hr >
+              <h4>{{ event_title }}</h4>
+              <p><strong>Location:</strong> {{ location }}</p>
+              <p><strong>Start Date:</strong> {{ start }}</p>
+              <p><strong>End Date:</strong> {{ end }}</p>
+              <p><strong>Notes:</strong> {{ message }}</p>
+          </div>
+      </div>
+  </div>
 </div>
-
-<p>More stuff. {{ example_context_variable }}.</p>
-
 {% endblock content %}
 
 

@@ -18,7 +18,7 @@ def sign_up(request):
             # Log-in the user right away, then redirect home
             messages.success(request, 'Account created successfully. Welcome to Pencil It In!')
             login(request, user)
-            return redirect('accounts/profile_page.html')
+            return redirect('../users/'+request.user.username)
     else:
         form = SignupForm()
 
@@ -35,7 +35,7 @@ def log_in(request):
             # User has specified valid credentials, have user log-in, and then
             # redirect back home
             login(request, form.get_user())
-            return redirect('home')
+            return redirect('../users/'+request.user.username)
     else:
         form = AuthenticationForm()
 

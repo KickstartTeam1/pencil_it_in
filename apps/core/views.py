@@ -21,7 +21,7 @@ def create_event(request):
             event.create_event_user = logged_in_user
             event.save()
 
-            return redirect('../users/' + request.user.username)
+            return redirect('../../account/users/' + request.user.username)
     else:
         form = CreateEventForm()
     

@@ -33,6 +33,7 @@ LOCAL_APPS = [
 
 THIRD_PARTY_APPS = [
     'bootstrap4',
+    'bootstrap_datepicker_plus',
 ]
 
 DJANGO_APPS = [
@@ -43,6 +44,10 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+BOOTSTRAP3 = {
+    'include_jquery': True,
+}
 
 INSTALLED_APPS = LOCAL_APPS + THIRD_PARTY_APPS + DJANGO_APPS
 

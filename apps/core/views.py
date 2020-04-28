@@ -1,16 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django import forms
+from django.contrib import messages
 from apps.core.models import Event
 from apps.core.forms import CreateEventForm, EditEventForm
 from apps.core.email import Email
 from datetime import datetime
 
 def home(request):
-    events = Event.objects.all()
-    context = {
-        'events': events,
-    }
+    context = {}
 
     return render(request, 'pages/home.html', context)
 
@@ -26,11 +24,12 @@ def create_event(request):
 
             email_successful = Email.create_email(event.id, logged_in_user.id)
             if email_successful:
-                print('Successful email send!')
+                messages.success(request, 'Successful email send!')
             else:
-                print('Failed email send!')
+                messages.success(request, 'Failed email send!')
 
-            return redirect('/')
+            return redirect('../../account/users/' + request.user.username)
+
     else:
         form = CreateEventForm()
 
@@ -52,7 +51,8 @@ def edit_event(request, event_id):
 
         if form.is_valid():
             form.save()
-            return redirect('/')
+            messages.success(request, 'Event update successful.')
+            return redirect('../../account/users/' + request.user.username)
 
     else:
         # A GET, create a pre-filled form with the instance.

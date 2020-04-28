@@ -4,6 +4,7 @@ from django import forms
 from django.contrib import messages
 from apps.core.models import Event
 from apps.core.forms import CreateEventForm, EditEventForm
+from apps.core.email import Email
 from datetime import datetime
 
 def home(request):
@@ -21,10 +22,17 @@ def create_event(request):
             event.create_event_user = logged_in_user
             event.save()
 
+            email_successful = Email.create_email(event.id, logged_in_user.id)
+            if email_successful:
+                messages.success(request, 'Successful email send!')
+            else:
+                messages.success(request, 'Failed email send!')
+
             return redirect('../../account/users/' + request.user.username)
+
     else:
         form = CreateEventForm()
-    
+
     context = {
         'form': form,
     }

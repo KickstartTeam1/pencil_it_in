@@ -1,3 +1,4 @@
+import os
 import json
 
 from socketlabs.injectionapi import SocketLabsClient
@@ -49,10 +50,10 @@ class Email():
 
 
         # get credentials from environment variables
-        # server_id = int(os.environ.get('SOCKETLABS_SERVER_ID'))
-        # api_key = os.environ.get('SOCKETLABS_INJECTION_API_KEY')
-        server_id = 'SOCKETLABS_SERVER_ID'
-        api_key = 'SOCKETLABS_INJECTION_API_KEY'
+        server_id = int(os.environ.get('SOCKETLABS_SERVER_ID'))
+        api_key = os.environ.get('SOCKETLABS_INJECTION_API_KEY')
+        # server_id = 'SOCKETLABS_SERVER_ID'
+        # api_key = 'SOCKETLABS_INJECTION_API_KEY'
 
         # create the client
         client = SocketLabsClient(server_id, api_key)

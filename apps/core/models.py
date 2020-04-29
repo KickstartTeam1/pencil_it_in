@@ -9,11 +9,11 @@ class Event(models.Model):
        User,
        on_delete=models.CASCADE, default=99999999
     )
-    event_title = models.CharField(max_length=128)
-    location = models.CharField(max_length=256)
-    start_dt = models.DateTimeField()
-    end_dt = models.DateTimeField()
-    message = models.CharField(max_length=5000)
-    invitee_emails = models.CharField(max_length=5000)
+    event_title = models.CharField(verbose_name="Name of Event:", max_length=128)
+    location = models.CharField(verbose_name="Event Location:", max_length=256)
+    start_dt = models.DateTimeField(verbose_name="Start Date:", help_text="Please select the date and time to START your event.")
+    end_dt = models.DateTimeField(verbose_name="End Date:", help_text="Please select the date and time to END your event.")
+    message = models.CharField(verbose_name="Message:", max_length=5000, help_text="Please enter a message you would like to tell your guests.")
+    invitee_emails = models.CharField(verbose_name="Invitee(s) Email Address:", max_length=5000, help_text="Please use ;'s' to seperate emails addresses.")
     created = models.DateTimeField(auto_now_add=True) # Add current date
     last_modified = models.DateTimeField(auto_now=True)

@@ -33,6 +33,7 @@ LOCAL_APPS = [
 
 THIRD_PARTY_APPS = [
     'bootstrap4',
+    'bootstrap_datepicker_plus',
 ]
 
 DJANGO_APPS = [

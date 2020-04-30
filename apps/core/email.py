@@ -43,7 +43,10 @@ class Email():
         # Adding Attachments
         # ==========================
         # Add Attachment directly to the list
-        attachment = Attachment("email.PNG", "image/png", "/static/images/email.PNG")
+        print('This is the cwd:', os.getcwd())
+        cwd = os.getcwd() + '/apps/core/static/images/'
+        print(os.listdir(cwd))
+        attachment = Attachment("email.PNG", "image/png", cwd + 'email.PNG')
         attachment.content_id = "pencil_it_in_logo"
 
         message.add_attachment(attachment)

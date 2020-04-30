@@ -89,7 +89,7 @@ class Email():
 
     def create_plain_text_body(user, event):
         return "You've Been Invited! " + user.first_name + ' ' + user.last_name + \
-               "To view the invitation, go to http://www.pencil-it-in.com/event/" + \
+               "To view the invitation, go to http://www.pencilitin.herokuapp.com/event/" + \
                       str(event.id) + '/' \
 
 
@@ -105,7 +105,7 @@ class Email():
     def create_href_line(event):
         # Change URL when hosted in Heroku
         # return 'Please click <a href="http://www.pencil-it-in.com/event/' + \
-        return 'Please click <a href="https://quiet-shelf-48125.herokuapp.com/event/' + \
+        return 'Please click <a href="https://pencilitin.herokuapp.com/event/' + \
                str(event.id) + '/"><strong>HERE</strong></a> to view!' \
 
     def parse_invitees(invitee_emails):

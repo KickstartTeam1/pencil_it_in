@@ -11,8 +11,8 @@ class Event(models.Model):
     )
     event_title = models.CharField(verbose_name="Name of Event:", max_length=128)
     location = models.CharField(verbose_name="Event Location:", max_length=256)
-    start_dt = models.DateTimeField(verbose_name="Start Date:", help_text="Please select the date and time to START your event.")
-    end_dt = models.DateTimeField(verbose_name="End Date:", help_text="Please select the date and time to END your event.")
+    start_dt = models.DateTimeField(verbose_name="Start Date:", help_text="Please select the date and time (displayed in 24-hour format) to START your event.")
+    end_dt = models.DateTimeField(verbose_name="End Date:", help_text="Please select the date and time (displayed in 24-hour format) to END your event.")
     message = models.CharField(verbose_name="Message:", max_length=5000, help_text="Please enter a message you would like to tell your guests.")
     invitee_emails = models.CharField(verbose_name="Invitee(s) Email Address:", max_length=5000, help_text="Please use ;'s' to seperate emails addresses.")
     created = models.DateTimeField(auto_now_add=True) # Add current date

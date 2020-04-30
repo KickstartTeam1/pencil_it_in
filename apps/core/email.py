@@ -43,7 +43,7 @@ class Email():
         # Adding Attachments
         # ==========================
         # Add Attachment directly to the list
-        attachment = Attachment("email.PNG", "image/png", "apps/core/static/images/email.PNG")
+        attachment = Attachment("email.PNG", "image/png", "/static/images/email.PNG")
         attachment.content_id = "pencil_it_in_logo"
 
         message.add_attachment(attachment)

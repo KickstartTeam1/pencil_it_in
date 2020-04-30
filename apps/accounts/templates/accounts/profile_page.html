@@ -5,39 +5,53 @@
 {% endblock title %}
 
 {% block content %}
-<div class="row">
-    <div class="col-md-3">
-        <img src="{{ user.gravatar }}" />
+<div class="row"></div>
+    <div class="column">
+        <div class="col-sm-6 col-md-6 col-lg-6 mx-auto my-5" >
+            <img src="{{ user.gravatar }}" />
 
-        <h3>@{{ user.username }}</h3>
-        <p><strong>{{ user.first_name }} {{ user.last_name }}</strong></p>
-        <p>{{ user.bio }}</p>
-
-        {% if is_viewing_self %}
-            <button><a href="{% url "edit_profile" %}">Edit Profile</a></button>
-        {% endif %}
-        <br >
-        <button><a href="/create-event/">Create An Event</a></button>
+            <h3>@{{ user.username }}</h3>
+            <h5><strong>{{ user.first_name }} {{ user.last_name }}</strong></h5>
+        </div>
     </div>
+            
+        <div class="column">
+            <div class="col-sm-6 col-md-6 col-lg-6 mx-auto my-5" >
+                {% if is_viewing_self %}
+                <button class="btn1 btn-sm btn-primary btn-block text-uppercase"><a href="{% url "edit_profile" %}">Edit Profile</a></button>
+                {% endif %}
+                 <br >
+                 <button class="btn2 btn-lg btn-primary btn-block text-uppercase"><a href="/create-event/">Create An Event</a></button>
+            </div>
+        </div>
 
-    {%for event in events %}
-    <div class="row">
-        <div class="col-sm-9 col-md-7 col-lg-7 mx-auto">
-            <div class="card card-signin my-5">
-                <div class="card-body">
-                    <h4>{{ event.event_title }}</h4>
-                    <p><strong>Location:</strong> {{ event.location }}</p>
-                    <p><strong>Start Date:</strong> {{ event.start_dt }}</p>
-                    <p><strong>End Date:</strong> {{ event.end_dt }}</p>
-                    <p><strong>Notes:</strong> {{ event.message }}</p>
-                    <a href="/event/{{ event.id }}/">View</a>
-                    <a href="/edit-event/{{ event.id }}/">Edit</a>
+        <div class="column">
+            <div class="col-sm-6 col-md-6 col-lg-6 mx-auto my-5">
+                <h3>--------------------</h3>
+                <h3>SCHEDULED EVENTS</h3>
+                <h3>--------------------</h3>
+            </div>
+        </div>
+
+        {%for event in events %}
+        <div class="column">
+            <div class="col-sm-6 col-md-6 col-lg-6 mx-auto my-5">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h4>{{ event.event_title }}</h4>
+                        <p><strong>Location:</strong> {{ event.location }}</p>
+                        <p><strong>Start Date:</strong> {{ event.start_dt }}</p>
+                        <p><strong>End Date:</strong> {{ event.end_dt }}</p>
+                        <p><strong>Notes:</strong> {{ event.message }}</p>
+                        <a href="/event/{{ event.id }}/">View</a>
+                        <a href="/edit-event/{{ event.id }}/">Edit</a>
+                    </div>
                 </div>
             </div>
         </div>
-      </div>
-      <br >
-      {% endfor %}
+        <br >
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}
 

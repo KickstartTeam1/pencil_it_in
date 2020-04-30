@@ -1,5 +1,36 @@
 /* Custom CSS goes here */
 
+body,h1,h2,h3,h4,h5,h6 {
+    font-family: "Raleway", sans-serif; 
+    color: black;
+}
+
+.bg-4 {
+    background-color: #fea096;
+    color: #fff;
+  }
+  body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+  }
+  main {
+      flex: 1 1 auto;
+  }
+
+.header-logo {
+    text-align: center;
+}
+
+.header-logo img {
+    max-height: 50vh;
+}
+
+body, html {
+    height: 100%;
+    line-height: 1.8;
+}
+
 .navbar {
     background: linear-gradient(135deg, #f2f9fe 0%, #fea096 100%);
 }
@@ -82,4 +113,13 @@ button {
 body {
     background-color: #ffe6ee;
     opacity: 0.7;
+
   }
+
+.row1 {
+    width: 50%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    border-width: thick;
+}

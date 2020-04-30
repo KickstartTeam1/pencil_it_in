@@ -26,6 +26,7 @@
     color: #ffffff ;
     background-color: #fea096;
     border-color: #fccb00;
+    border-width: thick;
 
 }
 
@@ -34,6 +35,33 @@
     border-color: #fea096;
 }
 
+.btn1 {
+    color: #ffffff ;
+    background-color: #fea096;
+    border-color: #fccb00;
+    width: 25%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    border-width: thick;
+}
+
+.btn1:hover {
+    background-color: #fccb00;
+    border-color: #fea096;
+}
+.btn2 {
+    color: #ffffff ;
+    background-color: #fea096;
+    border-color: #fccb00;
+    border-width: thick;
+
+}
+
+.btn2:hover {
+    background-color: #fccb00;
+    border-color: #fea096;
+}
 a.nav-link {
     color: black;
 }
@@ -41,3 +69,17 @@ a.nav-link {
 a.navbar-brand {
     color: black;
 }
+
+button {
+    color: #ffffff ;
+
+}
+
+.column {
+    text-align: center;
+}
+
+body {
+    background-color: #ffe6ee;
+    opacity: 0.7;
+  }

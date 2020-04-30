@@ -23,4 +23,11 @@
 </div>
 {% endblock content %}
 
+{% if user.is_authenticated %}
+    <p>
+        <a href="'../users/' + request.user.username/" class="btn btn-primary btn-lg">
 
+        Back to Profile
+    </a>
+</p>
+{% endif %}

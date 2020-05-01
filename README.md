@@ -31,9 +31,10 @@ Developed by: Jeannie Halvorson, Deepinder Kaur, Zachary Lake & Ron Villena
 * This is for people who want a quick-access way of creating a local event and sending invites to friends. It provides a simplified user interface to make creating and viewing events easy for users and invitees. 
 
 ## Development
-
-* Built using Python, Django, HTML, CSS
-* Styled by Bootstrap and static CSS
+ 
+* Built with Python, Django, HTML, CSS, Bootstrap
+* Runs [Socket Labs](socketlabs.com) for email API
+* Uses [Datepicker-Plus](https://pypi.org/project/django-bootstrap-datepicker-plus/) from PyPI
 * Deployed on [Heroku](herokuapp.com)
 
 

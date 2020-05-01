@@ -1,4 +1,4 @@
-![PencilItIn Logo](./apps/core/static/images/kickstart_coding_logo.png)
+![PencilItIn Logo](./apps/core/static/images/logo.PNG)
 
 # Pencil It In
 
@@ -6,7 +6,7 @@
 
 This is a web application built as part of the [Kickstart Coding](http://kickstartcoding.com/) Backend project curriculum.
 
-Developed by: Jeannie Halvorson, Deepinder, Zachary Lake & Ron Villena
+Developed by: Jeannie Halvorson, Deepinder Kaur, Zachary Lake & Ron Villena
 
 
 ### Features
@@ -15,13 +15,16 @@ Developed by: Jeannie Halvorson, Deepinder, Zachary Lake & Ron Villena
 
 * Account holders can view their profile and edit profile information
 
-* Users with an account can create an event specifying location, time & date
-
-* Saved events are stored on the user profile page
+* Account holders can create an event specifying name, location, date, time, and event notes
 
 * Events can be sent as invites to third parties via email
 
+* Saved events are stored on the user's profile page
+
+* Events can be edited (name, location, date/time, event notes) 
+
 * Events can be viewed using a static url sent in the event invite
+
 
 ### Who this is for
 
@@ -31,6 +34,7 @@ Developed by: Jeannie Halvorson, Deepinder, Zachary Lake & Ron Villena
 
 * Built using Python, Django, HTML, CSS
 * Styled by Bootstrap and static CSS
+* Deployed on [Heroku](herokuapp.com)
 
 
 ## Running the application
@@ -39,27 +43,19 @@ Developed by: Jeannie Halvorson, Deepinder, Zachary Lake & Ron Villena
 
 ### Signing Up/Editing Profile
 
-* Click "Sign Up" if you are a new user and enter the required information on the signup page. You will be routed to your profile page upon clicking "Submit"
+* Click "Sign Up" if you are a new user and enter the required information on the signup page. You will be routed to your profile page upon clicking "Sign Up"
 
-* Click on your username in the top-right corner to edit the profile
-
-* Edit fields as needed in your profile and click "Save" to go back to your profile page
+* Click "Edit Profile" to edit name and email address
 
 ### Creating an Event
 
 * While on your profile page, click "Create an Event"
 
-* Fill in the required fields and click "Save Event"
-  * You can send invites directly when saving the event or add them later from your profile page
+* Fill in the required fields and click "Create Your Event!" button
+  * Invites are sent directly to email addresses listed in "Invitee(s) Email Addresses" field
 
 ### Viewing/Editing Events
 
 * Events are listed on your profile page. Clicking on any specific event will direct you to the event page.
 
 * Saved events can be edited by clicking the "Edit" link for the specific event on your profile page
-
-### Sending Invites
-
-* Email addresses can be added when creating the event by typing them into the "Invite members" field
-
-* Email addresses can be added when editing an event and will send invites upon saving

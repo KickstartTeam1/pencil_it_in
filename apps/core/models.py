@@ -14,6 +14,6 @@ class Event(models.Model):
     start_dt = models.DateTimeField(verbose_name="Start Date:", help_text="Select the date and time (displayed in 24-hour format) to START your event.")
     end_dt = models.DateTimeField(verbose_name="End Date:", help_text="Select the date and time (displayed in 24-hour format) to END your event.")
     message = models.CharField(verbose_name="Message:", max_length=5000, help_text="Enter a message you would like to tell your guests.")
-    invitee_emails = models.CharField(verbose_name="Invitee(s) Email Address:", max_length=5000, help_text="Use ';' to seperate email addresses.")
+    invitee_emails = models.CharField(verbose_name="Invitee(s) Email Address:", max_length=5000, help_text="Use ' ; ' to seperate email addresses.")
     created = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
